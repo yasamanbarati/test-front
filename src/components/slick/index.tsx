@@ -9,7 +9,25 @@ import { sliderData } from "@/services/mock";
 import { CarouselArrows, CarouselDots } from "@/helpers/carousel-dots";
 import { styled } from "@mui/material";
 
-const SliderContent = styled(Slider)(() => ({
+const SliderContent = styled(Slider)(({theme}) => ({
+  [theme.breakpoints.down(700)]:{
+    "& .slick-list": {
+      height: "460px",
+    },
+    "& .slick-slide.slick-active.slick-current": {
+      display: "flex",
+      justifyContent: "center",
+      height: "400px",
+      "& div": {
+        width: "80%",
+        height: "100%",
+        "& img": {
+          width: "100%",
+          height: "100%",
+        },
+      },
+    },
+  },
   "& .slick-slide.slick-active": {
     transform: "scale(0.7)",
     filter: "opacity(0.5)",
@@ -48,7 +66,7 @@ const SlickSlider = () => {
     carouselRef.current?.slickNext();
   };
 
-  const settings = {
+  const Settings = {
     className: "center",
     dots: true,
     infinite: true,
@@ -56,12 +74,14 @@ const SlickSlider = () => {
     slidesToShow: 3,
     centerMode: true,
     centerPadding: "0px",
+
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 700,
         settings: {
           slidesToShow: 1,
-          centerMode: true,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
     ],
@@ -85,7 +105,7 @@ const SlickSlider = () => {
           left: "32px",
         }}
       >
-        <SliderContent ref={carouselRef} {...settings}>
+        <SliderContent ref={carouselRef} {...Settings}>
           {sliderData.map((item, index) => (
             <Image
               key={index}
