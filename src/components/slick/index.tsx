@@ -7,6 +7,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { sliderData } from "@/services/mock";
 import { CarouselArrows, CarouselDots } from "@/helpers/carousel-dots";
+import { styled } from "@mui/material";
+
+const SliderContent = styled(Slider)(() => ({
+  "& .slick-slide.slick-active": {
+    transform: "scale(0.7)",
+    filter: "opacity(0.5)",
+  },
+  "& .slick-slide.slick-active.slick-current": {
+    transform: "scale(1)",
+    filter: "opacity(1)",
+  },
+}));
 
 const CarouselArrowsStyle = {
   width: "100%",
@@ -73,7 +85,7 @@ const SlickSlider = () => {
           left: "42px",
         }}
       >
-        <Slider ref={carouselRef} {...settings}>
+        <SliderContent ref={carouselRef} {...settings}>
           {sliderData.map((item, index) => (
             <Image
               key={index}
@@ -83,7 +95,7 @@ const SlickSlider = () => {
               height={400}
             />
           ))}
-        </Slider>
+        </SliderContent>
       </CarouselArrows>
     </div>
   );
