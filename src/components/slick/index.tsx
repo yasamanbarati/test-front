@@ -78,11 +78,11 @@ const SlickSlider = () => {
         LeftStyle={{
           ...CarouselArrowsStyle,
           left: "auto",
-          right: "42px",
+          right: "32px",
         }}
         RightStyle={{
           ...CarouselArrowsStyle,
-          left: "42px",
+          left: "32px",
         }}
       >
         <SliderContent ref={carouselRef} {...settings}>
