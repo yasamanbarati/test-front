@@ -19,9 +19,6 @@ const RootStyle = styled(Box, {
   bottom: "-20px",
   width: "100%",
   height: "100%",
-  [theme.breakpoints.down("sm")]: {
-    left: "-140px",
-  },
   "& li": {
     width: "15px!important",
     height: "15px!important",
@@ -58,7 +55,7 @@ const DotWrapStyle = styled("div")(() => ({
 const DotStyle = styled("span")(({ theme }) => ({
   width: 15,
   height: 15,
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down(700)]: {
     width: 12,
     height: 12,
   },

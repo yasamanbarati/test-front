@@ -17,7 +17,7 @@ const TitleHeader = styled("h1")(() => ({
 
 const ProjectSlider = () => {
   return (
-    <div className="container mx-auto bg-white flex flex-col items-center justify-between my-6 gap-y-28">
+    <div className="container mx-auto bg-white flex flex-col items-center justify-between my-6 gap-y-28 md:gap-1">
       <TitleHeader className="text-xl font-bold text-dark-600 p-4 rounded-lg">
         پروژه ها
         <img src="/images/yellow-blush.png" alt="blush" />
